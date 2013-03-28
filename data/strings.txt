@@ -1,4 +1,52 @@
 # halloele, dies ist ein Kommentar
+
+waggon_h: 
+ ####### 
+(#######)
+ ####### 
+
+
+#tested with font "Curier"
+#hier gibt es keinen Colorkey!
+train:
+/‾‾‾‾‾‾‾\
+|  -TR  P
+o‾o‾‾‾o‾o
+
+station:
+/‾‾‾‾‾‾‾\
+|  -ST  |
+‾‾‾‾‾‾‾‾‾
+
+
+train_hr: 
+ .__/### 
+<=o==###)
+ °‾‾\### 
+
+train_hl: 
+ ###\__. 
+(###==o=>
+ ###/‾‾° 
+
+
+train_vu: 
+    ^    
+   ###   
+   ###   
+
+
+
+
+station_vl: 
+/\ |¦|%  
+XX=|¦|%  
+\/ |¦|%  
+
+
+
+
+
 side: 
 _________
 ---------
