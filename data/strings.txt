@@ -53,37 +53,37 @@ XX=|¦|%  
 
 side: 
 _________
----------
+|||||||||
 ‾‾‾‾‾‾‾‾‾
 
 #man sollte übrigens auf Leerzeichen aufpassen...
 
 up: 
-   |¦|   
-   |¦|   
-   |¦|   
+   |=|   
+   |=|   
+   |=|   
 
 #Das Leerzeichen nach dem Doppelpunkt ist der Colorkey
 
 left_down: 
 _____    
------|   
-‾‾‾|¦|   
+||||/|   
+‾‾‾|=|   
 
 down_right: 
     _____
-   |-----
-   |¦|‾‾‾
+   |\||||
+   |=|‾‾‾
 
 left_up: 
-___|¦|   
------|   
+___|=|   
+||||\|   
 ‾‾‾‾‾    
 
 
 up_right :
-   |¦|___
-   |-----
+   |=|___
+   |/||||
     ‾‾‾‾‾
 
 
