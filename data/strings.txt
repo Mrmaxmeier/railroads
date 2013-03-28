@@ -1,0 +1,48 @@
+# halloele, dies ist ein Kommentar
+side: 
+_________
+---------
+‾‾‾‾‾‾‾‾‾
+
+#man sollte übrigens auf Leerzeichen aufpassen...
+
+up: 
+   |¦|   
+   |¦|   
+   |¦|   
+
+#Das Leerzeichen nach dem Doppelpunkt ist der Colorkey
+
+left_down: 
+_____    
+-----|   
+‾‾‾|¦|   
+
+down_right: 
+    _____
+   |-----
+   |¦|‾‾‾
+
+left_up: 
+___|¦|   
+-----|   
+‾‾‾‾‾    
+
+
+up_right :
+   |¦|___
+   |-----
+    ‾‾‾‾‾
+
+
+# Anis funzen so:
+# den Variablen kann mit = ein beliebiger Wert zugewiesen werden:
+dieAntwort = 42
+# dabei zählt schon definiertes auch:
+dieAntwort2 = dieAntwort + 1
+side_krhsdfakl = side
+# wenn ein fleißiger Implementierer dann dafür sorgt, dass auch bestimmte
+# Hilfsfunktionen akzessibel sind, gingen Anis dann so:
+#       dieAni = ani([frame1, frame2, frame3])
+# wobei die Frames vorher definiert wurden.
+#LG Felix
