@@ -69,8 +69,10 @@ class UI:
 				self.cursesinstance.addstr(Y,X,str.encode('utf_8'))
 			else:
 				self.cursesinstance.addstr(Y,X,str.encode('utf_8'),type)
-	def hud(self,coins,year,size):
-		self.cprint(0,self.screensize[1]-5,"Coins: "+str(self.gameobj.money))
+	def hud(self):
+		self.cprint(0,self.screensize[1]-12,"Coins: "+str(self.gameobj.money))
+		self.cprint(1,self.screensize[1]-12,"Year: "+str(self.gameobj.year))
+		self.cprint(self.screensize[0]-1,self.screensize[1]-12,"Menu: "+str("Quit"))
 	def printdict(self,dict,Y,X):
 		for yi,xi in dict.keys():
 			#print "Printing:",dict[(yi,xi)]
@@ -92,6 +94,7 @@ class UI:
 		self.printmatrix()
 		ui.printdict(stringsfile.dict["highlighted"],
 		self.gameobj.highlighted[0]*3,self.gameobj.highlighted[1]*9)
+		self.hud()
 		self.cursesinstance.refresh()
 
 
