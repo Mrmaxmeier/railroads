@@ -1,4 +1,10 @@
-# halloele, dies ist ein Kommentar
+#grid Y3 X9
+
+clean:*
+*********
+*********
+*********
+
 
 waggon_h: 
  ####### 

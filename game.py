@@ -20,6 +20,8 @@ class Game:
 		self.routes =  []
 		self.clock = time.time()
 		self.year = 0
+		self.money = 500
+		self.highlighted = [0,0]
 	def elapsedtime(self):
 		return (time.time() - self.clock)
 	def tick(self):
@@ -35,6 +37,15 @@ class Game:
 		pass
 		#self.matrix[coords] = (type,data)
 		#self.objects[type] = (coords,data)
+	def move_highlight(self,direction):
+		if direction == "LEFT" and self.highlighted[1]>-1:
+			self.highlighted[1] += -1
+		if direction == "RIGHT":
+			self.highlighted[1] += 1
+		if direction == "UP" and self.highlighted[0]>-1:
+			self.highlighted[0] += -1
+		if direction == "DOWN":
+			self.highlighted[0] += 1
 
 
 if __name__ == "__main__":
