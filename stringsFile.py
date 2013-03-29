@@ -1,4 +1,5 @@
 import codecs
+#!/usr/local/bin/python3
 class StringsFile:
 	def __init__(self, name):
 		self.dict = {}
