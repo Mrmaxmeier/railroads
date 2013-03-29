@@ -6,16 +6,22 @@ waggon_h:
  ####### 
 
 
+
+
+#  _______                _______      <>_<>      
+# (_______) |_|_|_|_|_|_|| [] [] | .---|'"`|---.  
+#`-oo---oo-'`-oo-----oo-'`-o---o-'`o"O-OO-OO-O"o' 
+
 #tested with font "Curier"
 #hier gibt es keinen Colorkey!
 train:
 /‾‾‾‾‾‾‾\
-|  -TR  P
+|  -TR  P
 o‾o‾‾‾o‾o
 
 station:
 /‾‾‾‾‾‾‾\
-|  -ST  |
+|  -ST  |
 ‾‾‾‾‾‾‾‾‾
 
 
@@ -31,21 +37,21 @@ train_hl:
 
 
 train_vu: 
-    ^    
-   ###   
-   ###   
+    ^    
+   ###   
+   ###   
 
 train_vd: 
-   ###   
-   ###   
-    v     
+   ###   
+   ###   
+    v     
 
 
 
 station_vl: 
-/\ |¦|%  
-XX=|¦|%  
-\/ |¦|%  
+/\ |¦|%  
+XX=|¦|%  
+\/ |¦|%  
 
 
 
@@ -98,3 +104,10 @@ side_krhsdfakl = side
 #       dieAni = ani([frame1, frame2, frame3])
 # wobei die Frames vorher definiert wurden.
 #LG Felix
+
+
+
+highlighted:*
++***-***+
+|*******|
++***-***+
