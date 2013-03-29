@@ -1,7 +1,9 @@
+import codecs
 class StringsFile:
 	def __init__(self, name):
 		self.dict = {}
-		f = open(name, "r")
+		f = open(name)#, "r")
+		f = codecs.open(name, encoding='utf-8')
 		curImg = None
 		for line in f:
 			line = line[:-1]
@@ -30,4 +32,4 @@ class StringsFile:
 
 
 if __name__ == "__main__":
-	print StringsFile("data/strings.txt").dict.keys()
+	print(StringsFile("data/strings.txt").dict.keys())
