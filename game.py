@@ -22,6 +22,7 @@ class Game:
 		self.year = 0
 		self.money = 500
 		self.highlighted = [0,0]
+		self.screensize = [0,0]
 	def elapsedtime(self):
 		return (time.time() - self.clock)
 	def tick(self):
@@ -38,13 +39,13 @@ class Game:
 		#self.matrix[coords] = (type,data)
 		#self.objects[type] = (coords,data)
 	def move_highlight(self,direction):
-		if direction == "LEFT" and self.highlighted[1]>-1:
+		if direction == "LEFT" and self.highlighted[1]>0:
 			self.highlighted[1] += -1
-		if direction == "RIGHT":
+		if direction == "RIGHT" and self.highlighted[1]<self.screensize[1]:
 			self.highlighted[1] += 1
-		if direction == "UP" and self.highlighted[0]>-1:
+		if direction == "UP" and self.highlighted[0]>0:
 			self.highlighted[0] += -1
-		if direction == "DOWN":
+		if direction == "DOWN" and self.highlighted[0]<self.screensize[0]:
 			self.highlighted[0] += 1
 
 

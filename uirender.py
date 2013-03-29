@@ -48,23 +48,27 @@ class UI:
 	def __init__(self,gameobj):
 		self.gameobj = gameobj
 		self.cursesinstance = self.initcurses()
-		self.screensize = [100,100] #X,Y
+		self.screensize = self.cursesinstance.getmaxyx() #Y,X
 		self.tilesize = [3,9]
+		self.gameobj.screensize = self.screensize
 	def initcurses(self):
 		stdscr = initscr()
 		#start_color()
 		noecho()
 		cbreak()
+		curs_set(0)
 		stdscr.keypad(1)
 		locale.setlocale(locale.LC_ALL,"")
 		return stdscr
 	def cprint(self,Y,X,str,type = None):
 		#print "Printing:",str
-		if type == None:
-			self.cursesinstance.addstr(Y,X,str.encode('utf_8'))
+		if Y >= self.screensize[0] or X >= self.screensize[1]:
+			print("FAIL")
 		else:
-			self.cursesinstance.addstr(Y,X,str.encode('utf_8'),type)
-		self.cursesinstance.refresh()
+			if type == None:
+				self.cursesinstance.addstr(Y,X,str.encode('utf_8'))
+			else:
+				self.cursesinstance.addstr(Y,X,str.encode('utf_8'),type)
 	def hud(self,coins,year,size):
 		self.cprint(0,self.screensize[1]-5,"Coins: "+str(self.gameobj.money))
 	def printdict(self,dict,Y,X):
@@ -84,9 +88,11 @@ class UI:
 	def railmatrix_to_matrix(railmatrix):
 		pass
 	def refresh(self):
+		self.cursesinstance.clear()
 		self.printmatrix()
 		ui.printdict(stringsfile.dict["highlighted"],
 		self.gameobj.highlighted[0]*3,self.gameobj.highlighted[1]*9)
+		self.cursesinstance.refresh()
 
 
 class Renderer(UI):
