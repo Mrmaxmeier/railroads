@@ -117,3 +117,18 @@ highlighted:*
 +***v***+
 >*******<
 +***^***+
+
+
+
+menu:*
+/‾‾‾‾‾‾‾‾‾‾‾‾‾\
+|    [S]ave    |
+|    [L]oad    |
+|   [R]estart  |
+|  [I]nventory |
+|   [C]redits  |
+|   [F]upsii   |
+\______________/
+
+
+

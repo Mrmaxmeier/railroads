@@ -27,34 +27,22 @@ def combine_strings(strings):
 	return result
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 from curses import *
 import locale
 class UI:
-	def __init__(self,gameobj):
+	def __init__(self,gameobj,stringsfile):
+		self.stringsfile = stringsfile
 		self.gameobj = gameobj
 		self.cursesinstance = self.initcurses()
 		self.screensize = self.cursesinstance.getmaxyx() #Y,X
 		self.tilesize = [3,9]
 		self.gameobj.screensize = self.screensize
+		self.inmenu = 0
 	def initcurses(self):
 		stdscr = initscr()
 		#start_color()
 		noecho()
+		start_color()
 		cbreak()
 		curs_set(0)
 		stdscr.keypad(1)
@@ -70,9 +58,12 @@ class UI:
 			else:
 				self.cursesinstance.addstr(Y,X,str.encode('utf_8'),type)
 	def hud(self):
-		self.cprint(0,self.screensize[1]-12,"Coins: "+str(self.gameobj.money))
-		self.cprint(1,self.screensize[1]-12,"Year: "+str(self.gameobj.year))
-		self.cprint(self.screensize[0]-1,self.screensize[1]-12,"Menu: "+str("Quit"))
+		string = "Coins: "+str(self.gameobj.money)
+		self.cprint(0,self.screensize[1]-(len(string)+1),string)
+		string = "Year: "+str(self.gameobj.year)
+		self.cprint(1,self.screensize[1]-(len(string)+1),string)
+		string = "Menu: [B]uildMode [Q]uit [P]ause [R]efresh"
+		self.cprint(self.screensize[0]-1,self.screensize[1]-(len(string)+1),string)
 	def printdict(self,dict,Y,X):
 		for yi,xi in dict.keys():
 			#print "Printing:",dict[(yi,xi)]
@@ -86,49 +77,19 @@ class UI:
 			for dict in line:
 				#print(yi)
 				coords = [coords[0],coords[1]+self.tilesize[1]]
-				self.printdict(stringsfile.dict[dict],coords[0],coords[1])
+				self.printdict(self.stringsfile.dict[dict],coords[0],coords[1])
 	def railmatrix_to_matrix(railmatrix):
 		pass
-	def refresh(self):
+	def refresh(self,option = None):
 		self.cursesinstance.clear()
+		if option == "all":
+			self.screensize = self.cursesinstance.getmaxyx() #Y,X
+			self.gameobj.screensize = self.screensize
 		self.printmatrix()
-		ui.printdict(stringsfile.dict["highlighted"],
+		self.printdict(self.stringsfile.dict["highlighted"],
 		self.gameobj.highlighted[0]*3,self.gameobj.highlighted[1]*9)
+		for train in self.gameobj.trainlist:
+			self.printdict(self.stringsfile.dict[train[5]],train[0][0]*3,train[0][1]*9)
 		self.hud()
 		self.cursesinstance.refresh()
-
-
-class Renderer(UI):
-	pass
 import time
-
-if __name__ == "__main__":
-	testmatrix =   [["down_right","side","side","side","left_down"],
-					["station","left_down","down_right","left_down","up"],
-					["up","up","station","up","up"],
-					["up","up_right","side","left_up","up"],
-					["up_right","side","side","side","left_up"]]
-	railmatrix = [[True,1,1,1],
-				  [1,0,0,1],
-				  [],
-				  [],
-				  []]
-	#print()
-	#for i in testmatrix:
-	#	print(combine_strings(i))
-	game = Game()
-	ui = UI(game)
-	stringsfile = StringsFile("data/strings.txt")
-	ui.printmatrix(testmatrix)
-	ui.printdict(stringsfile.dict["highlighted"],0*3,0*9)
-	ui.printdict(stringsfile.dict["highlighted"],1*3,0*9)
-	ui.printdict(stringsfile.dict["highlighted"],0*3,1*9)
-	ui.printdict(stringsfile.dict["train_hr"],3*3,2*9)
-	#ui.hud(42,1999,[10,10])
-	game.matrix = testmatrix
-	while 1:
-		event = ui.cursesinstance.getch()
-		parseevent(event,game)
-		ui.refresh()
-		#pass
-	endwin()

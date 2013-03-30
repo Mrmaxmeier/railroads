@@ -19,15 +19,16 @@ class Game:
 		[[[3,3],"OldieTrain","MyShittyTrain",1642,42]],[[[4,4],"Library","Max's Bookstore",42]]]
 		self.routes =  []
 		self.clock = time.time()
-		self.year = 0
+		self.year = 1830
 		self.money = 500
 		self.highlighted = [0,0]
 		self.screensize = [0,0]
+		self.trainlist = [[[3,3],"OldieTrain","MyShittyTrain",1642,42,"train_hr"]]
 	def elapsedtime(self):
 		return (time.time() - self.clock)
 	def tick(self):
 		self.year = self.elapsedtime()/60
-		print("Year:",int(self.year))
+		#print("Year:",int(self.year))
 		self.tick_move()
 	def tick_move(self):
 		for train in self.objects[2]:
