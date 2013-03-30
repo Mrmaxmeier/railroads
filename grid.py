@@ -45,3 +45,16 @@ class Field:
 			raise RailOutOfBoundsException
 		self.neighbors[dir] = (False, other)
 		other.neighbors[opposites[dir]] = (False, self)
+
+class Grid:
+	def __init__(self, xsize, ysize):
+		self.dict = {}
+		for x in range(xsize):
+			for y in range(ysize):
+				self.dict[y, x] = Field((y,x))
+				if y < 0:
+					self.dict[y, x].connectTo(UP, self.dict[y-1, x])
+				if x < 0:
+					self.dict[y, x].connectTo(LEFT, self.dict[y, x-1])
+
+#print Grid(2, 3).dict
