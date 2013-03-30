@@ -1,14 +1,9 @@
 import curses
 import copy
+import stringsFileEnv
+from stringsFileEnv import black, white, red, green, blue, cyan, magenta, yellow
 
-black = curses.COLOR_BLACK
-white = curses.COLOR_WHITE
-red = curses.COLOR_RED
-green = curses.COLOR_GREEN
-blue = curses.COLOR_BLUE
-cyan = curses.COLOR_CYAN
-magenta = curses.COLOR_MAGENTA
-yellow = curses.COLOR_YELLOW
+
 
 class Char:
 	def __init__(self, char):
@@ -21,6 +16,9 @@ class Char:
 		
 		self.vtextCol = white
 		self.vbackCol = black
+	
+	def __str__(self):
+		return self.char
 	
 	def copy(self):
 		return copy.deepcopy(self)
@@ -42,7 +40,7 @@ class Char:
 
 class StringsFile:
 	def __init__(self, name):
-		self.dict = {}
+		self.dict = copy.copy(stringsFileEnv.__dict__)
 		f = open(name, "r")
 		curImg = None
 		for line in f:
@@ -53,7 +51,7 @@ class StringsFile:
 				img, y, colKey = curImg
 				for (x, ch) in enumerate(line):
 					if ch != colKey:
-						img[y, x] = ch
+						img[y, x] = Char(ch)
 				curImg = img, y+1, colKey
 			elif line.startswith("#"):
 				pass
