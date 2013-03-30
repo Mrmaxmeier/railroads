@@ -1,7 +1,4 @@
 *.c4d
-<<<<<<< Updated upstream
-*.pyc
-=======
 
 *.pyc
->>>>>>> Stashed changes
+*.pyo
