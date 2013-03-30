@@ -13,17 +13,18 @@ def newgame():
 					["up","up","station","up","up"],
 					["up","up_right","side","left_up","up"],
 					["up_right","side","side","side","left_up"],
-					["side"]]
+					["side","side","side","side","side","side","side"]]
 	stringsfile = StringsFile("data/strings.txt")
 	game = Game()
 	ui = UI(game,stringsfile)
 	eventobj = Event(ui,game)
-	ui.printdict(stringsfile.dict["highlighted"],0*3,0*9)
 	#ui.hud(42,1999,[10,10])
 	game.matrix = testmatrix
+	ui.refresh()
 	while 1:
 		event = ui.cursesinstance.getch()
 		eventobj.parseevent(event)
+		game.tick()
 		ui.refresh()
 		#pass
 	endwin()

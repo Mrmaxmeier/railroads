@@ -60,9 +60,9 @@ class UI:
 	def hud(self):
 		string = "Coins: "+str(self.gameobj.money)
 		self.cprint(0,self.screensize[1]-(len(string)+1),string)
-		string = "Year: "+str(self.gameobj.year)
+		string = self.gameobj.month+" "+str(self.gameobj.year)
 		self.cprint(1,self.screensize[1]-(len(string)+1),string)
-		string = "Menu: [B]uildMode [Q]uit [P]ause [R]efresh"
+		string = "[M]enu: [B]uildMode [R]efresh"
 		self.cprint(self.screensize[0]-1,self.screensize[1]-(len(string)+1),string)
 	def printdict(self,dict,Y,X):
 		for yi,xi in dict.keys():
@@ -91,5 +91,6 @@ class UI:
 		for train in self.gameobj.trainlist:
 			self.printdict(self.stringsfile.dict[train[5]],train[0][0]*3,train[0][1]*9)
 		self.hud()
+		if self.inmenu == 1:
+			self.printdict(self.stringsfile.dict["menu"],int(self.screensize[0]/2),int(self.screensize[1]/2))
 		self.cursesinstance.refresh()
-import time

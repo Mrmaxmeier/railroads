@@ -121,14 +121,14 @@ highlighted:*
 
 
 menu:*
-/‾‾‾‾‾‾‾‾‾‾‾‾‾\
-|    [S]ave    |
-|    [L]oad    |
-|   [R]estart  |
-|  [I]nventory |
-|   [C]redits  |
-|   [F]upsii   |
-\______________/
+/‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\
+|    [S]ave     |
+|    [L]oad     |
+|   [R]estart   |
+|  [I]nventory  |
+|   [C]redits   |
+| [E]xit [M]enu |
+\_______________/
 
 
 

@@ -20,6 +20,7 @@ class Game:
 		self.routes =  []
 		self.clock = time.time()
 		self.year = 1830
+		self.month = "Janurary"
 		self.money = 500
 		self.highlighted = [0,0]
 		self.screensize = [0,0]
@@ -27,14 +28,18 @@ class Game:
 	def elapsedtime(self):
 		return (time.time() - self.clock)
 	def tick(self):
-		self.year = self.elapsedtime()/60
+		self.year = int((self.elapsedtime()/60)+1830)
+		months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+		self.month = months[int(((self.elapsedtime()/60)+1830-int((self.elapsedtime()/60)+1830))*12)]
 		#print("Year:",int(self.year))
 		self.tick_move()
 	def tick_move(self):
 		for train in self.objects[2]:
-			print("Train",train)
+			pass
+			#print("Train",train)
 		for station in self.objects[0]:
-			print("Station",station)
+			pass
+			#print("Station",station)
 	def addobj(self,type,coords,data):
 		pass
 		#self.matrix[coords] = (type,data)
