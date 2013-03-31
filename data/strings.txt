@@ -61,16 +61,16 @@ XX=|¦|%
 
 
 
+# Reihenfolge der Bezeichnungen: left, right, up, down
 
-
-side: 
+left_right: 
 _________
 |||||||||
 ‾‾‾‾‾‾‾‾‾
 
 #man sollte übrigens auf Leerzeichen aufpassen...
 
-up: 
+up_down: 
    |=|   
    |=|   
    |=|   
@@ -82,7 +82,7 @@ _____
 ||||/|   
 ‾‾‾|=|   
 
-down_right: 
+right_down: 
     _____
    |\||||
    |=|‾‾‾
@@ -93,11 +93,55 @@ ___|=|
 ‾‾‾‾‾    
 
 
-up_right: 
+right_up: 
    |=|___
    |/||||
     ‾‾‾‾‾
 
+right_up_down: 
+   |=|___
+   |X(|||
+   |=|‾‾‾
+
+left_up_down: 
+___|=|   
+|||)X|   
+‾‾‾|=|   
+
+left_right_up_down: 
+___|=|___
+|||)X(|||
+‾‾‾|=|‾‾‾
+
+left_right_down: 
+_________
+||||X||||
+‾‾‾|=|‾‾‾
+
+left_right_up: 
+___|=|___
+||||X||||
+‾‾‾‾‾‾‾‾‾
+
+up: 
+   |=|   
+   |=|   
+   ‾‾‾   
+
+down: 
+   ___   
+   |=|   
+   |=|   
+
+left: 
+_____$\  
+|||||$== 
+‾‾‾‾‾$/  
+
+right: 
+  /$_____
+ ==$|||||
+  \$‾‾‾‾‾
 
 kreuzung = combine(left_up, down_right)
 
@@ -106,7 +150,7 @@ kreuzung = combine(left_up, down_right)
 dieAntwort = 42
 # dabei zählt schon definiertes auch:
 dieAntwort2 = dieAntwort + 1
-side_krhsdfakl = side
+side_krhsdfakl = left_right
 # wenn ein fleißiger Implementierer dann dafür sorgt, dass auch bestimmte
 # Hilfsfunktionen akzessibel sind, gingen Anis dann so:
 #       dieAni = ani([frame1, frame2, frame3])
