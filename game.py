@@ -1,5 +1,6 @@
 #!/usr/local/bin/python3
 import time
+from grid import *
 
 
 
@@ -25,6 +26,7 @@ class Game:
 		self.highlighted = [0,0]
 		self.screensize = [0,0]
 		self.trainlist = [[[3,3],"OldieTrain","MyShittyTrain",1642,42,"train_hr"]]
+		self.grid = Grid(20,20)
 	def elapsedtime(self):
 		return (time.time() - self.clock)
 	def tick(self):
@@ -40,6 +42,9 @@ class Game:
 		for station in self.objects[0]:
 			pass
 			#print("Station",station)
+		self.refresh_matrix()
+	def refresh_matrix(self):
+		self.matrix = self.grid.returnmatrix()
 	def addobj(self,type,coords,data):
 		pass
 		#self.matrix[coords] = (type,data)

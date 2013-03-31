@@ -62,7 +62,14 @@ class UI:
 		self.cprint(0,self.screensize[1]-(len(string)+1),string)
 		string = self.gameobj.month+" "+str(self.gameobj.year)
 		self.cprint(1,self.screensize[1]-(len(string)+1),string)
-		string = "[M]enu: [B]uildMode [R]efresh"
+		if self.inmenu == 0:
+			string = "[M]enu: [B]uildMode [R]efresh"
+		elif self.inmenu == 2:
+			string = "Your in BuildMode! <W,D,A,S> to toggle Connections, 'Return' to create a Station;"
+			self.cprint(self.screensize[0]-2,self.screensize[1]-(len(string)+1),string)
+			string = "[E]xit BuildMode [R]efresh"
+		else:
+			string = "..."
 		self.cprint(self.screensize[0]-1,self.screensize[1]-(len(string)+1),string)
 	def printdict(self,dict,Y,X):
 		for yi,xi in dict.keys():
@@ -85,6 +92,7 @@ class UI:
 		if option == "all":
 			self.screensize = self.cursesinstance.getmaxyx() #Y,X
 			self.gameobj.screensize = self.screensize
+			self.gameobj.refresh_matrix()
 		self.printmatrix()
 		self.printdict(self.stringsfile.dict["highlighted"],
 		self.gameobj.highlighted[0]*3,self.gameobj.highlighted[1]*9)

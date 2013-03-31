@@ -89,7 +89,7 @@ XX=|¦|%
 
 
 
-
+# Reihenfolge der Bezeichnungen: left, right, up, down
 
 left_right: 
 _________
@@ -110,7 +110,7 @@ _____
 ||||/|   
 ‾‾‾|=|   
 
-down_right: 
+right_down: 
     _____
    |\||||
    |=|‾‾‾
@@ -121,32 +121,32 @@ ___|=|
 ‾‾‾‾‾    
 
 
-up_right: 
+right_up: 
    |=|___
    |/||||
     ‾‾‾‾‾
 
-down_right_up: 
+right_up_down: 
    |=|___
    |X(|||
    |=|‾‾‾
 
-up_left_down: 
+left_up_down: 
 ___|=|   
 |||)X|   
 ‾‾‾|=|   
 
-up_left_down_right: 
+left_right_up_down: 
 ___|=|___
 |||)X(|||
 ‾‾‾|=|‾‾‾
 
-left_down_right: 
+left_right_down: 
 _________
 ||||X||||
 ‾‾‾|=|‾‾‾
 
-right_up_left: 
+left_right_up: 
 ___|=|___
 ||||X||||
 ‾‾‾‾‾‾‾‾‾
@@ -170,8 +170,6 @@ right:
   /$_____
  ==$|||||
   \$‾‾‾‾‾
-
-kreuzung = combine(left_up, down_right)
 
 # Anis funzen so:
 # den Variablen kann mit = ein beliebiger Wert zugewiesen werden:
