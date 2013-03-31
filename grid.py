@@ -6,7 +6,7 @@ RIGHT = "right"
 dirs = [UP, DOWN, LEFT, RIGHT]
 opposites = {UP:DOWN, DOWN:UP, LEFT:RIGHT, RIGHT:LEFT}
 
-class RailOutOfBoundsException:
+class RailOutOfBoundsException(Exception):
 	pass
 
 class Field:
