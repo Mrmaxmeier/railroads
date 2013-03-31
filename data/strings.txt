@@ -63,14 +63,14 @@ XX=|¦|%
 
 
 
-side: 
+left_right: 
 _________
 |||||||||
 ‾‾‾‾‾‾‾‾‾
 
 #man sollte übrigens auf Leerzeichen aufpassen...
 
-up: 
+up_down: 
    |=|   
    |=|   
    |=|   
@@ -130,7 +130,7 @@ kreuzung = combine(left_up, down_right)
 dieAntwort = 42
 # dabei zählt schon definiertes auch:
 dieAntwort2 = dieAntwort + 1
-side_krhsdfakl = side
+side_krhsdfakl = left_right
 # wenn ein fleißiger Implementierer dann dafür sorgt, dass auch bestimmte
 # Hilfsfunktionen akzessibel sind, gingen Anis dann so:
 #       dieAni = ani([frame1, frame2, frame3])
