@@ -32,13 +32,13 @@ class Event:
 				self.uiobj.inmenu = 0
 				self.uiobj.refresh("all")
 			if event == ord("W") or event == ord("w"):
-				self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]].buildRail(UP)
+				self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]].toggleRail(UP)
 			if event == ord("D") or event == ord("d"):
-				self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]].buildRail(RIGHT)
+				self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]].toggleRail(RIGHT)
 			if event == ord("A") or event == ord("a"):
-				self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]].buildRail(LEFT)
+				self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]].toggleRail(LEFT)
 			if event == ord("S") or event == ord("s"):
-				self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]].buildRail(DOWN)
+				self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]].toggleRail(DOWN)
 			if event == KEY_LEFT:
 				self.gameobj.move_highlight("LEFT")
 			elif event == KEY_RIGHT:

@@ -26,7 +26,7 @@ class Game:
 		self.highlighted = [0,0]
 		self.screensize = [0,0]
 		self.trainlist = [[[3,3],"OldieTrain","MyShittyTrain",1642,42,"train_hr"]]
-		self.grid = Grid(20,20)
+		self.grid = Grid(30,30)
 	def elapsedtime(self):
 		return (time.time() - self.clock)
 	def tick(self):
