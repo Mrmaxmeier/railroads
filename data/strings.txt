@@ -6,12 +6,17 @@ clean:*
 *********
 
 
-waggon_h: 
+waggon_h_raw: 
  ####### 
 (#######)
  ####### 
 
+waggon_h_mask: 
+ ggggggg 
+ GGGGGGG 
+ ggggggg 
 
+waggon_h = format(waggon_h_raw, waggon_h_mask, g=[textCol(green)], G=[textCol(green), bold()])
 
 
 #   _______                _______      <>_<>      
@@ -31,28 +36,51 @@ station:
 ‾‾‾‾‾‾‾‾‾
 
 
-train_hr: 
+train_hr_raw: 
  .__/### 
 <=o==###)
  °‾‾\### 
 
-train_hl: 
+train_hl_raw: 
  ###\__. 
 (###==o=>
  ###/‾‾° 
 
+train_hr_mask: 
+     ggg 
+     GGG 
+     ggg 
 
-train_vu: 
+train_hl_mask: 
+ ggg     
+ GGG     
+ ggg     
+
+train_hr = format(train_hr_raw, train_hr_mask, g=[textCol(green)], G=[textCol(green), bold()])
+train_hl = format(train_hl_raw, train_hl_mask, g=[textCol(green)], G=[textCol(green), bold()])
+
+train_vu_raw: 
     ^    
    ###   
    ###   
 
-train_vd: 
+train_vd_raw: 
    ###   
    ###   
-    v     
+    v    
 
+train_vu_mask: 
+         
+   gGg   
+   gGg   
 
+train_vd_mask: 
+   gGg   
+   gGg   
+         
+
+train_vu = format(train_vu_raw, train_vu_mask, g=[textCol(green)], G=[textCol(green), bold()])
+train_vd = format(train_vd_raw, train_vd_mask, g=[textCol(green)], G=[textCol(green), bold()])
 
 station_vl: 
 /\ |¦|%  
@@ -159,12 +187,17 @@ side_krhsdfakl = left_right
 
 
 
-highlighted:*
+highlighted_raw:*
 +***v***+
 >*******<
 +***^***+
 
+highlighted_mask:*
+X***X***X
+X*******X
+X***X***X
 
+highlighted = format(highlighted_raw, highlighted_mask, X=[bold(), textCol(red), backCol(white)])
 
 menu:*
 /‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\
