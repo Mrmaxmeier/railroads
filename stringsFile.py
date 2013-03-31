@@ -72,4 +72,4 @@ class StringsFile:
 
 
 if __name__ == "__main__":
-	print StringsFile("data/strings.txt").dict.keys()
+	print(StringsFile("data/strings.txt").dict.keys())

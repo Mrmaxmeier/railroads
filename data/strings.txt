@@ -143,8 +143,6 @@ right:
  ==$|||||
   \$‾‾‾‾‾
 
-kreuzung = combine(left_up, down_right)
-
 # Anis funzen so:
 # den Variablen kann mit = ein beliebiger Wert zugewiesen werden:
 dieAntwort = 42
