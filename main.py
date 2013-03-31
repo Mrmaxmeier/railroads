@@ -11,7 +11,7 @@ def newgame():
 	testmatrix =   [["right_down","left_right","left_right","left_right","left_down"],
 			["station","left_down","right_down","left_down","up_down"],
 			["up_down","up_down","station","up_down","up_down"],
-			["up_down","right_up","side","left_up","up_down"],
+			["up_down","right_up","left_right","left_up","up_down"],
 			["right_up","left_right","left_right","left_right","left_up"],
 			["left_right","left_right","left_right","left_right","left_right","left_right","left_right"]]
 	stringsfile = StringsFile("data/strings.txt")
