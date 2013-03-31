@@ -98,6 +98,30 @@ up_right:
    |/||||
     ‾‾‾‾‾
 
+down_right_up: 
+   |=|___
+   |X(|||
+   |=|‾‾‾
+
+up_left_down: 
+___|=|   
+|||)X|   
+‾‾‾|=|   
+
+up_left_down_right: 
+___|=|___
+|||)X(|||
+‾‾‾|=|‾‾‾
+
+left_down_right: 
+_________
+||||X||||
+‾‾‾|=|‾‾‾
+
+right_up_left: 
+___|=|___
+||||X||||
+‾‾‾‾‾‾‾‾‾
 
 kreuzung = combine(left_up, down_right)
 
