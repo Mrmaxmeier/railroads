@@ -30,6 +30,9 @@ class Char:
 		new.__dict__[prop] = val
 		return new
 	
+	def encode(self, *args, **kwd):
+		return self.char.encode(*args, **kwd)
+	
 	def italic(b=True): self.withCopy("vitalic", b)
 	def bold(b=True): self.withCopy("vbold", b)
 	def underline(b=True): self.withCopy("vunderline", b)
