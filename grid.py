@@ -32,6 +32,9 @@ class Field:
 	def destroyStation(self):
 		self.hasStation = False
 	
+	def toggleStation(self):
+		self.hasStation = not self.hasStation
+	
 	def buildRail(self, dir):
 		other = self.neighbors[dir][1]
 		if other == None:
@@ -45,6 +48,12 @@ class Field:
 			raise RailOutOfBoundsException
 		self.neighbors[dir] = (False, other)
 		other.neighbors[opposites[dir]] = (False, self)
+	
+	def toggleRail(self, dir):
+		if self.neighbors[dir][0]:
+			self.destroyRail(dir)
+		else:
+			self.buildRail(dir)
 
 class Grid:
 	def __init__(self, xsize, ysize):
