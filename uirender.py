@@ -30,22 +30,23 @@ def combine_strings(strings):
 from curses import *
 import locale
 class UI:
-	def __init__(self,gameobj,stringsfile):
+	def __init__(self,gameobj,stringsfile,stdscr):
 		self.stringsfile = stringsfile
 		self.gameobj = gameobj
-		self.cursesinstance = self.initcurses()
+		self.cursesinstance = self.initcurses(stdscr)
 		self.screensize = self.cursesinstance.getmaxyx() #Y,X
 		self.tilesize = [3,9]
 		self.gameobj.screensize = self.screensize
 		self.inmenu = 0
-	def initcurses(self):
-		stdscr = initscr()
+	def initcurses(self,stdscr):
+		#stdscr = initscr()
 		#start_color()
 		noecho()
 		start_color()
 		cbreak()
 		curs_set(0)
 		stdscr.keypad(1)
+		#stdscr.nodelay(1)
 		locale.setlocale(locale.LC_ALL,"")
 		return stdscr
 	def cprint(self,Y,X,str,type = None):
@@ -90,14 +91,19 @@ class UI:
 	def refresh(self,option = None):
 		self.cursesinstance.clear()
 		if option == "all":
-			self.screensize = self.cursesinstance.getmaxyx() #Y,X
-			self.gameobj.screensize = self.screensize
+			
 			self.gameobj.refresh_matrix()
 		self.printmatrix()
 		self.printdict(self.stringsfile.dict["highlighted"],self.gameobj.highlighted[0]*3,self.gameobj.highlighted[1]*9)
 		for train in self.gameobj.trainlist:
 			self.printdict(self.stringsfile.dict[train[5]],train[0][0]*3,train[0][1]*9)
+		for station in self.gameobj.stationlist:
+			self.printdict(self.stringsfile.dict["station_vl"],station[0][0]*3,station[0][1]*9)
 		self.hud()
 		if self.inmenu == 1:
 			self.printdict(self.stringsfile.dict["menu"],int(self.screensize[0]/2),int(self.screensize[1]/2))
 		self.cursesinstance.refresh()
+	def idlerefresh(self):
+		self.screensize = self.cursesinstance.getmaxyx() #Y,X
+		self.gameobj.screensize = self.screensize
+		self.refresh()

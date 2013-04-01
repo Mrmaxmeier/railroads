@@ -204,6 +204,8 @@ menu:*
 |   [R]estart   |
 |  [I]nventory  |
 |   [C]redits   |
+|    [H]elp     |
+|    [Q]uit     |
 | [E]xit [M]enu |
 \_______________/
 

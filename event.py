@@ -1,6 +1,6 @@
 from curses import *
 from grid import *
-import sys
+import sys,time
 class Event:
 	def __init__(self,uiobject,gameobject):
 		self.uiobj = uiobject
@@ -43,6 +43,10 @@ class Event:
 				elif cfield.isRail(cdir) == False:
 					if self.gameobj.spend_money(20):
 						cfield.buildRail(cdir)
+			elif event == ord("\n"):
+				cfield = self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]]
+				cfield.toggleStation()
+				self.uiobj.refresh("all")
 			if event == KEY_LEFT:
 				self.gameobj.move_highlight("LEFT")
 			elif event == KEY_RIGHT:

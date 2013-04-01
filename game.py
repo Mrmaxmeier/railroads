@@ -25,16 +25,19 @@ class Game:
 		self.money = 500
 		self.highlighted = [0,0]
 		self.screensize = [0,0]
-		self.trainlist = [[[3,3],"OldieTrain","MyShittyTrain",1642,42,"train_hr"]]
+		self.trainlist = [[[4,4],"OldieTrain","MyShittyTrain",1642,42,"train_hr"]]
+		self.stationlist = [[[3,3],1],] #[Coords],Status
 		self.grid = Grid(30,30)
+		self.matrix = []
 	def elapsedtime(self):
 		return (time.time() - self.clock)
 	def tick(self):
+		#print("Year:",int(self.year))
+		self.tick_move()
+	def idletick(self):
 		self.year = int((self.elapsedtime()/60)+1830)
 		months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
 		self.month = months[int(((self.elapsedtime()/60)+1830-int((self.elapsedtime()/60)+1830))*12)]
-		#print("Year:",int(self.year))
-		self.tick_move()
 	def tick_move(self):
 		for train in self.objects[2]:
 			pass
@@ -45,6 +48,7 @@ class Game:
 		self.refresh_matrix()
 	def refresh_matrix(self):
 		self.matrix = self.grid.returnmatrix()
+		self.stationlist = self.grid.returnstations()
 	def addobj(self,type,coords,data):
 		pass
 		#self.matrix[coords] = (type,data)

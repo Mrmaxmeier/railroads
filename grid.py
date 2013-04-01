@@ -33,7 +33,9 @@ class Field:
 		self.hasStation = False
 	
 	def toggleStation(self):
-		self.hasStation = not self.hasStation
+		if self.hasStation > 0: self.hasStation = False
+		if not self.hasStation: self.hasStation = True
+		#self.hasStation = not self.hasStation
 	
 	def buildRail(self, dir):
 		other = self.neighbors[dir][1]
@@ -81,14 +83,21 @@ class Grid:
 			xmatrix = []
 			for x in range(self.xsize):
 				cfield_left,cfield_right,cfield_down,cfield_up = False,False,False,False
-				if self.dict[y, x].neighbors[LEFT][0]: cfield_left = True
-				if self.dict[y, x].neighbors[RIGHT][0]: cfield_right = True
-				if self.dict[y, x].neighbors[DOWN][0]: cfield_down = True
-				if self.dict[y, x].neighbors[UP][0]: cfield_up = True
+				if self.dict[y,x].neighbors[LEFT][0]: cfield_left = True
+				if self.dict[y,x].neighbors[RIGHT][0]: cfield_right = True
+				if self.dict[y,x].neighbors[DOWN][0]: cfield_down = True
+				if self.dict[y,x].neighbors[UP][0]: cfield_up = True
 				xmatrix.append(parts[(cfield_left,cfield_right,cfield_up,cfield_down)])
 			matrix.append(xmatrix)
 		return matrix
-				
+	def returnstations(self):
+		stations = []
+		for y in range(self.ysize):
+			for x in range(self.xsize):
+				if self.dict[y,x].hasStation:
+					stations.append([[y,x],self.dict[y,x].hasStation])
+		return stations
+
 #grid = Grid(2,3)
 #print(grid.dict[0,0].neighbors)
 #print Grid(2, 3).dict
