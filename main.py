@@ -7,16 +7,12 @@ from game import *
 from uirender import *
 from eventcatcher import *
 from curses import *
+from logger import *
 import queue
 
 
 def newgame(std):
-	testmatrix =   [["right_down","left_right","left_right","left_right","left_down"],
-			["station","left_down","right_down","left_down","up_down"],
-			["up_down","up_down","station","up_down","up_down"],
-			["up_down","right_up","left_right","left_up","up_down"],
-			["right_up","left_right","left_right","left_right","left_up"],
-			["left_right","left_right","left_right","left_right","left_right","left_right","left_right"]]
+	log("Starting new Game...")
 	stringsfile = StringsFile("data/strings.txt")
 	game = Game()
 	ui = UI(game,stringsfile,std)
