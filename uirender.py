@@ -97,14 +97,22 @@ class UI:
 			self.gameobj.refresh_matrix()
 		self.printmatrix()
 		self.printdict(self.stringsfile.dict["highlighted"],self.gameobj.highlighted[0]*3,self.gameobj.highlighted[1]*9)
-		for train in self.gameobj.trainlist:
-			self.printdict(self.stringsfile.dict[train[5]],train[0][0]*3,train[0][1]*9)
 		for station in self.gameobj.stationlist:
 			self.printdict(self.stringsfile.dict["station_vl"],station[0][0]*3,station[0][1]*9)
+		self.render_trains()
 		self.hud()
 		if self.inmenu == 1:
 			self.printdict(self.stringsfile.dict["menu"],int(self.screensize[0]/2),int(self.screensize[1]/2))
 		self.cursesinstance.refresh()
+	def render_trains(self):
+		for route in self.gameobj.routelist:
+			train_y,train_x,rotation = route.get()
+			if rotation ==   "up":   dict = "vu"
+			elif rotation == "down": dict = "vd"
+			elif rotation == "left": dict = "hr"
+			elif rotation == "right":dict = "hl"
+			dict = "train_"+dict
+			self.printdict(self.stringsfile.dict[dict],train_y*3,train_x*9)
 	def idlerefresh(self):
 		self.screensize = self.cursesinstance.getmaxyx() #Y,X
 		self.gameobj.screensize = self.screensize

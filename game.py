@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
 import time
 from grid import *
-
+from route import *
 
 
 
@@ -29,6 +29,7 @@ class Game:
 		self.stationlist = [] #[Coords],Status
 		self.grid = Grid(30,30)
 		self.matrix = []
+		self.routelist = []
 	def elapsedtime(self):
 		return (time.time() - self.clock)
 	def tick(self):

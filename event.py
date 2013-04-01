@@ -23,6 +23,9 @@ class Event:
 			elif event == ord("B") or event == ord("b"):
 				self.uiobj.inmenu = 2
 				self.uiobj.refresh("all")
+			elif event == ord("N") or event == ord("n"):
+				self.gameobj.routelist[0].next()
+				self.uiobj.refresh("all")
 		elif self.uiobj.inmenu == 1:#Menu
 			if event == ord("E") or event == ord("e") or event == ord("M") or event == ord("m"):
 				self.uiobj.inmenu = 0

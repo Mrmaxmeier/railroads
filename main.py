@@ -8,6 +8,7 @@ from uirender import *
 from eventcatcher import *
 from curses import *
 from logger import *
+from route import *
 import queue
 
 
@@ -23,6 +24,25 @@ def newgame(std):
 	#ui.hud(42,1999,[10,10])
 	#game.matrix = testmatrix
 	ui.refresh()
+	r_test = Route("TRAIN_ID",3,4,1)#y,x,right
+	r_test.add("forward")
+	r_test.add("right")
+	r_test.add("forward")
+	r_test.add("right")
+	r_test.add("forward")
+	r_test.add("right")
+	r_test.add("forward")
+	r_test.add("right")
+	r_test.add("forward")
+	r_test.add("right")
+	r_test.add("forward")
+	r_test.add("forward")
+	r_test.add("left")
+	r_test.add("forward")
+	r_test.add("right")
+	r_test.add("right")
+	r_test.add("forward")
+	game.routelist.append(r_test)
 	while 1:
 		try:
 			event = eventqueue.get(False,1)
