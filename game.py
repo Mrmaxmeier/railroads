@@ -26,7 +26,7 @@ class Game:
 		self.highlighted = [0,0]
 		self.screensize = [0,0]
 		self.trainlist = [[[4,4],"OldieTrain","MyShittyTrain",1642,42,"train_hr"]]
-		self.stationlist = [[[3,3],1],] #[Coords],Status
+		self.stationlist = [] #[Coords],Status
 		self.grid = Grid(30,30)
 		self.matrix = []
 	def elapsedtime(self):

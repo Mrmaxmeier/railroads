@@ -66,7 +66,9 @@ class UI:
 		if self.inmenu == 0:
 			string = "[M]enu: [B]uildMode [R]efresh"
 		elif self.inmenu == 2:
-			string = "Your in BuildMode! <W,D,A,S> to toggle Connections, 'Return' to create a Station;"
+			string = "Your in BuildMode!"
+			self.cprint(self.screensize[0]-3,self.screensize[1]-(len(string)+1),string)
+			string = "<W,D,A,S> to toggle Connections, 'Return' to create a Station;"
 			self.cprint(self.screensize[0]-2,self.screensize[1]-(len(string)+1),string)
 			string = "[E]xit BuildMode [R]efresh"
 		else:

@@ -33,9 +33,9 @@ class Field:
 		self.hasStation = False
 	
 	def toggleStation(self):
-		if self.hasStation > 0: self.hasStation = False
-		if not self.hasStation: self.hasStation = True
-		#self.hasStation = not self.hasStation
+		#if self.hasStation > 0: self.hasStation = False
+		#if not self.hasStation: self.hasStation = True
+		self.hasStation = not self.hasStation
 	
 	def buildRail(self, dir):
 		other = self.neighbors[dir][1]
