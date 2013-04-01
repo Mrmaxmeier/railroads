@@ -1,4 +1,4 @@
-import curses
+import curses,time
 
 black = curses.COLOR_BLACK
 white = curses.COLOR_WHITE
@@ -22,12 +22,13 @@ def combine(*args):
 	for d in args:
 		for k, v in d.items():
 			res[k] = v
+	return res
 
 def format(img, mask, **conf):
 	res = {}
-	for key, ch in img:
+	for key, ch in img.items():
 		fs = conf.get(mask.get(key, None), [])
 		for f in fs:
 			ch = f(ch)
 		res[key] = ch
-
+	return res

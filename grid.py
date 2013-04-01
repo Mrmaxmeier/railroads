@@ -54,6 +54,8 @@ class Field:
 			self.destroyRail(dir)
 		else:
 			self.buildRail(dir)
+	def isRail(self,dir):
+		return self.neighbors[dir][0]
 
 
 class Grid:

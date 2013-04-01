@@ -94,8 +94,7 @@ class UI:
 			self.gameobj.screensize = self.screensize
 			self.gameobj.refresh_matrix()
 		self.printmatrix()
-		self.printdict(self.stringsfile.dict["highlighted"],
-		self.gameobj.highlighted[0]*3,self.gameobj.highlighted[1]*9)
+		self.printdict(self.stringsfile.dict["highlighted"],self.gameobj.highlighted[0]*3,self.gameobj.highlighted[1]*9)
 		for train in self.gameobj.trainlist:
 			self.printdict(self.stringsfile.dict[train[5]],train[0][0]*3,train[0][1]*9)
 		self.hud()

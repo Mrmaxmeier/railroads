@@ -31,14 +31,18 @@ class Event:
 			if event == ord("E") or event == ord("e"):
 				self.uiobj.inmenu = 0
 				self.uiobj.refresh("all")
-			if event == ord("W") or event == ord("w"):
-				self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]].toggleRail(UP)
-			if event == ord("D") or event == ord("d"):
-				self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]].toggleRail(RIGHT)
-			if event == ord("A") or event == ord("a"):
-				self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]].toggleRail(LEFT)
-			if event == ord("S") or event == ord("s"):
-				self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]].toggleRail(DOWN)
+			if event in [ord("W"),ord("w"),ord("D"),ord("d"),ord("A"),ord("a"),ord("S"),ord("s")]:
+				if event   == ord("W") or event == ord("w"): cdir = UP
+				elif event == ord("D") or event == ord("d"): cdir = RIGHT
+				elif event == ord("A") or event == ord("a"): cdir = LEFT
+				elif event == ord("S") or event == ord("s"): cdir = DOWN
+				cfield = self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]]
+				if cfield.isRail(cdir):
+					self.gameobj.gain_money(19)
+					cfield.destroyRail(cdir)
+				elif cfield.isRail(cdir) == False:
+					if self.gameobj.spend_money(20):
+						cfield.buildRail(cdir)
 			if event == KEY_LEFT:
 				self.gameobj.move_highlight("LEFT")
 			elif event == KEY_RIGHT:

@@ -58,6 +58,14 @@ class Game:
 			self.highlighted[0] += -1
 		if direction == "DOWN" and self.highlighted[0]<self.screensize[0]:
 			self.highlighted[0] += 1
+	def spend_money(self,val):
+		if val > self.money:
+			return False
+		else:
+			self.money += -val
+			return True
+	def gain_money(self,val):
+		self.money += val
 
 
 if __name__ == "__main__":
