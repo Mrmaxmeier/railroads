@@ -4,6 +4,8 @@ import codecs
 import copy
 import stringsFileEnv
 from stringsFileEnv import black, white, red, green, blue, cyan, magenta, yellow
+from curses import *
+from logger import *
 
 
 
@@ -18,6 +20,8 @@ class Char:
 		
 		self.vtextCol = white
 		self.vbackCol = black
+		
+		self.initColorPairs()
 	
 	def __str__(self):
 		return self.char
@@ -33,13 +37,34 @@ class Char:
 	def encode(self, *args, **kwd):
 		return self.char.encode(*args, **kwd)
 	
-	def italic(b=True): self.withCopy("vitalic", b)
-	def bold(b=True): self.withCopy("vbold", b)
-	def underline(b=True): self.withCopy("vunderline", b)
-	def blink(b=True): self.withCopy("vblink", b)
+	def italic(self,b=True): return self.withCopy("vitalic", b)
+	def bold(self,b=True): return self.withCopy("vbold", b)
+	def underline(self,b=True): return self.withCopy("vunderline", b)
+	def blink(self,b=True): return self.withCopy("vblink", b)
 	
-	def textCol(color): self.withCopy("vtextCol", color)
-	def backCol(color): self.withCopy("vbackCol", color)
+	def textCol(self,color): return self.withCopy("vtextCol", color)
+	def backCol(self,color): return self.withCopy("vbackCol", color)
+	
+	def getattrs(self):
+		c = 0
+		if self.vbold: c = c | A_BOLD
+		if self.vitalic: c = c | A_ITALIC
+		if self.vunderline: c = c | A_UNDERLINE
+		if self.vblink: c = c | A_BLINK
+		c = c | color_pair(self.getColor())
+		if self.vtextCol > 0 and self.vbackCol > 0: pass
+		return c
+	def getColor(self):
+		if self.vtextCol == green and self.vbackCol == black: return 1
+		if self.vtextCol == red and self.vbackCol == black: return 2
+		curses.init_pair(44, self.vtextCol, self.vbackCol)
+		return 44
+	def initColorPairs(self):
+		curses.init_pair(1, green, black)
+		curses.init_pair(2, red, black)
+	
+	def draw(self,Y,X,cursesinstance):
+		cursesinstance.addstr(Y,X,self.char,self.getattrs())
 
 
 

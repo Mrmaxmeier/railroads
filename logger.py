@@ -7,5 +7,5 @@ Starting new Log....
 
 """)
 
-def log(string,level = 0):
+def log(*string,level = 0):
 	file.write(str(string)+", in Level "+str(level)+".\n")

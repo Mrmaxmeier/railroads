@@ -51,13 +51,15 @@ class UI:
 		return stdscr
 	def cprint(self,Y,X,str,type = None):
 		#print "Printing:",str
-		if Y >= self.screensize[0] or X >= self.screensize[1]:
-			print("FAIL")
+		if Y >= self.screensize[0] or X >= self.screensize[1]: pass
 		else:
 			if type == None:
 				self.cursesinstance.addstr(Y,X,str.encode('utf_8'))
 			else:
 				self.cursesinstance.addstr(Y,X,str.encode('utf_8'),type)
+	def charprint(self,Y,X,charobj):
+		if Y >= self.screensize[0] or X >= self.screensize[1]: pass
+		else: charobj.draw(Y,X,self.cursesinstance)
 	def hud(self):
 		string = "Coins: "+str(self.gameobj.money)
 		self.cprint(0,self.screensize[1]-(len(string)+1),string)
@@ -77,7 +79,7 @@ class UI:
 	def printdict(self,dict,Y,X):
 		for yi,xi in dict.keys():
 			#print "Printing:",dict[(yi,xi)]
-			self.cprint(yi+Y,xi+X,dict[(yi,xi)])
+			self.charprint(yi+Y,xi+X,dict[(yi,xi)])
 	def printmatrix(self,matrix = None,Y = 0,X = 0):
 		if matrix == None:
 			matrix = self.gameobj.matrix

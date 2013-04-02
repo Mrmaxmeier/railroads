@@ -195,7 +195,7 @@ X***X***X
 X*******X
 X***X***X
 
-highlighted = format(highlighted_raw, highlighted_mask, X=[bold(), textCol(red), backCol(white)])
+highlighted = format(highlighted_raw, highlighted_mask, X=[bold(), textCol(red), backCol(black)])
 
 menu:*
 /‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\
