@@ -15,16 +15,20 @@ class Event:
 				self.gameobj.move_highlight("UP")
 			elif event == KEY_DOWN:
 				self.gameobj.move_highlight("DOWN")
-			elif event == ord("R") or event == ord("r"):
-				self.uiobj.refresh("all")
+			#elif event == ord("R") or event == ord("r"):
+			#	self.uiobj.refresh("all") --UnWanted
 			elif event == ord("M") or event == ord("m"):
 				self.uiobj.inmenu = 1
 				self.uiobj.refresh("all")
 			elif event == ord("B") or event == ord("b"):
 				self.uiobj.inmenu = 2
 				self.uiobj.refresh("all")
-			elif event == ord("N") or event == ord("n"):
-				self.gameobj.routelist[0].next()
+			#elif event == ord("N") or event == ord("n"):
+			#	for route in self.gameobj.routelist:
+			#		route.next()
+			#	self.uiobj.refresh("all")
+			elif event == ord("R") or event == ord("r"):
+				self.inmenu = 3
 				self.uiobj.refresh("all")
 		elif self.uiobj.inmenu == 1:#Menu
 			if event == ord("E") or event == ord("e") or event == ord("M") or event == ord("m"):
@@ -58,3 +62,7 @@ class Event:
 				self.gameobj.move_highlight("UP")
 			elif event == KEY_DOWN:
 				self.gameobj.move_highlight("DOWN")
+		elif self.uiobj.inmenu == 2:#TrainManager
+			if event == ord("E") or event == ord("e"):
+				self.uiobj.inmenu = 0
+				self.uiobj.refresh("all")

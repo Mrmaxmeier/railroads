@@ -55,7 +55,7 @@ class Route():
 		dict = {0:"up",1:"right",2:"down",3:"left"}
 		return dict[num]#,num
 	def next(self):
-		if self.current_frame < len(self.route):
+		if self.current_frame < len(self.route)-1:
 			self.current_frame += 1
 		else:
 			self.current_frame = 0

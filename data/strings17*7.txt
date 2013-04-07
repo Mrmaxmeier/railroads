@@ -1,0 +1,335 @@
+#grid Y7 X17
+
+clean:*
+*****************
+*****************
+*****************
+*****************
+*****************
+*****************
+*****************
+
+waggon_h_raw: 
+ ####### 
+(#######)
+ ####### 
+
+waggon_h_mask: 
+ ggggggg 
+ GGGGGGG 
+ ggggggg 
+
+waggon_h = format(waggon_h_raw, waggon_h_mask, g=[textCol(green)], G=[textCol(green), bold()])
+
+
+#   _______                _______      <>_<>      
+#  (_______) |_|_|_|_|_|_|| [] [] | .---|'"`|---.  
+# `-oo---oo-'`-oo-----oo-'`-o---o-'`o"O-OO-OO-O"o' 
+
+#tested with font "Curier"
+#hier gibt es keinen Colorkey!
+train:
+/‾‾‾‾‾‾‾\
+|  -TR  P
+o‾o‾‾‾o‾o
+
+station:
+/‾‾‾‾‾‾‾\
+|  -ST  |
+‾‾‾‾‾‾‾‾‾
+
+
+train_hr_raw: 
+                 
+                 
+     .__/###     
+    <=o==###)    
+     °‾‾\###     
+                 
+                 
+
+train_hl_raw: 
+                 
+                 
+     ###\__.     
+    (###==o=>    
+     ###/‾‾°     
+                 
+                 
+
+train_hr_mask: 
+                 
+                 
+         ggg     
+         GGG     
+         ggg     
+                 
+                 
+
+train_hl_mask: 
+                 
+                 
+     ggg         
+     GGG         
+     ggg         
+                 
+                 
+
+train_hr = format(train_hr_raw, train_hr_mask, g=[textCol(green)], G=[textCol(green), bold()])
+train_hl = format(train_hl_raw, train_hl_mask, g=[textCol(green)], G=[textCol(green), bold()])
+
+train_vu_raw: 
+                 
+                 
+        ^        
+       ###       
+       ###       
+                 
+                 
+
+train_vd_raw: 
+                 
+                 
+       ###       
+       ###       
+        v        
+                 
+                 
+
+train_vu_mask: 
+                 
+                 
+                 
+       gGg       
+       gGg       
+                 
+                 
+
+train_vd_mask: 
+                 
+                 
+       gGg       
+       gGg       
+                 
+                 
+                 
+
+train_vu = format(train_vu_raw, train_vu_mask, g=[textCol(green)], G=[textCol(green), bold()])
+train_vd = format(train_vd_raw, train_vd_mask, g=[textCol(green)], G=[textCol(green), bold()])
+
+station_vl: 
+       |¦|       
+       |¦|%      
+    /\ |¦|%      
+    XX=|¦|%      
+    \/ |¦|%      
+       |¦|%      
+       |¦|       
+
+
+
+# Reihenfolge der Bezeichnungen: left, right, up, down
+
+left_right: 
+                 
+                 
+_________________
+|||||||||||||||||
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                 
+                 
+
+#man sollte übrigens auf Leerzeichen aufpassen...
+
+up_down: 
+       |=|       
+       |=|       
+       |=|       
+       |=|       
+       |=|       
+       |=|       
+       |=|       
+
+#Das Leerzeichen nach dem Doppelpunkt ist der Colorkey
+
+left_down: 
+                 
+                 
+_________        
+||||||||/|       
+‾‾‾‾‾‾‾|=|       
+       |=|       
+       |=|       
+
+right_down: 
+                 
+                 
+        __________
+       |\|||||||||
+       |=|‾‾‾‾‾‾‾
+       |=|       
+       |=|       
+
+left_up: 
+       |=|       
+       |=|       
+_______|=|       
+||||||||\|       
+‾‾‾‾‾‾‾‾        
+                 
+                 
+
+
+right_up: 
+       |=|       
+       |=|       
+       |=|_______
+       |/||||||||
+        ‾‾‾‾‾‾‾‾
+                 
+                 
+
+right_up_down: 
+       |=|       
+       |=|       
+       |=|_______
+       |X(|||||||
+       |=|‾‾‾‾‾‾‾
+       |=|       
+       |=|       
+
+left_up_down: 
+       |=|       
+       |=|       
+_______|=|       
+|||||||)X|       
+‾‾‾‾‾‾‾|=|       
+       |=|       
+       |=|       
+
+left_right_up_down: 
+       |=|       
+       |=|       
+_______|=|_______
+|||||||)X(|||||||
+‾‾‾‾‾‾‾|=|‾‾‾‾‾‾‾
+       |=|       
+       |=|       
+
+left_right_down: 
+                 
+                 
+_________________
+||||||||X||||||||
+‾‾‾‾‾‾‾|=|‾‾‾‾‾‾‾
+       |=|       
+       |=|       
+
+left_right_up: 
+       |=|       
+       |=|       
+_______|=|_______
+||||||||X||||||||
+‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+                 
+                 
+
+up: 
+       |=|       
+       |=|       
+       |=|       
+       |=|       
+       ‾‾‾       
+                 
+                 
+
+down: 
+                 
+                 
+       ___       
+       |=|       
+       |=|       
+       |=|       
+       |=|       
+
+left: 
+                 
+                 
+_________$\      
+|||||||||$==     
+‾‾‾‾‾‾‾‾‾$/      
+                 
+                 
+
+right: 
+                 
+                 
+     /$__________
+    ==$||||||||||
+     \$‾‾‾‾‾‾‾‾‾‾
+                 
+                 
+
+# Anis funzen so:
+# den Variablen kann mit = ein beliebiger Wert zugewiesen werden:
+dieAntwort = 42
+# dabei zählt schon definiertes auch:
+dieAntwort2 = dieAntwort + 1
+side_krhsdfakl = left_right
+# wenn ein fleißiger Implementierer dann dafür sorgt, dass auch bestimmte
+# Hilfsfunktionen akzessibel sind, gingen Anis dann so:
+#       dieAni = ani([frame1, frame2, frame3])
+# wobei die Frames vorher definiert wurden.
+#LG Felix
+
+
+
+highlighted_raw: 
++       v       +
+                 
+                 
+>               <
+                 
+                 
++       ^       +
+
+highlighted_mask:*
+X       X       X
+                 
+                 
+X               X
+                 
+                 
+X       X       X
+
+highlighted = format(highlighted_raw, highlighted_mask, X=[bold(), textCol(red), backCol(black)])
+
+menu:*
+/‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\
+|    [S]ave     |
+|    [L]oad     |
+|   [R]estart   |
+|  [I]nventory  |
+|   [C]redits   |
+|    [H]elp     |
+|    [Q]uit     |
+| [E]xit [M]enu |
+\_______________/
+
+
+
+
+trainmanager:*
+/‾‾‾‾‾\___________________/‾‾‾‾‾\
+|     /‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\     |
+|     |       <>_<>       |     |
+|     |   .---|'"`|---.   |     |
+|     |  `o"O-OO-OO-O"o   |     |
+|     \___________________/     |
+|               |               |
+|               |               |
+|               |               |
+|               |               |
+| /‾‾‾‾‾‾\      |     /‾‾‾‾‾‾‾\ |
+| |[N]ext|      |     |[P]rev.| |
+\_/‾‾‾‾‾‾\______|_____/‾‾‾‾‾‾‾\_/

@@ -1,6 +1,6 @@
 #!/usr/local/bin/python3
 
-import os,random,threading,queue
+import os,random,threading,queue,time
 
 
 from game import *
@@ -14,7 +14,7 @@ import queue
 
 def newgame(std):
 	log("Starting new Game...")
-	stringsfile = StringsFile("data/strings.txt")
+	stringsfile = StringsFile("data/strings17*7.txt")
 	game = Game()
 	ui = UI(game,stringsfile,std)
 	eventobj = Event(ui,game)
@@ -39,19 +39,30 @@ def newgame(std):
 	r_test.add("forward")
 	r_test.add("left")
 	r_test.add("forward")
-	r_test.add("right")
+	r_test.add("left")
+	r_test.add("forward")
+	r_test.add("left")
+	r_test.add("forward")
+	r_test.add("forward")
 	r_test.add("right")
 	r_test.add("forward")
+	r_test.add("right")
 	game.routelist.append(r_test)
+	timecounter = -5
 	while 1:
+		timecounter += 1
 		try:
 			event = eventqueue.get(False,1)
 			eventobj.parseevent(event)
 			game.tick()
 			ui.refresh()
 		except queue.Empty:
+			if timecounter % 300 == 0:
+				game.idleanimate()
+				ui.refresh()
 			game.idletick()
 			ui.idlerefresh()
+		time.sleep(0.01)
 		#pass
 	endwin()
 

@@ -37,8 +37,13 @@ class Game:
 		self.tick_move()
 	def idletick(self):
 		self.year = int((self.elapsedtime()/60)+1830)
-		months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+		months = ["   Jan","   Feb","   Mar","   Apr","  May","  June","  July","   Aug","   Sep","   Oct","   Nov","   Dec"]
 		self.month = months[int(((self.elapsedtime()/60)+1830-int((self.elapsedtime()/60)+1830))*12)]
+	def idleanimate(self):
+		for route in self.routelist:
+			route.next()
+		#self.uiobj.refresh("all")
+		
 	def tick_move(self):
 		for train in self.objects[2]:
 			pass

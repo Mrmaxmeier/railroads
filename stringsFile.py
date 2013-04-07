@@ -100,4 +100,4 @@ class StringsFile:
 
 
 if __name__ == "__main__":
-	print(StringsFile("data/strings.txt").dict.keys())
+	print(StringsFile("data/strings17*7.txt").dict.keys())
