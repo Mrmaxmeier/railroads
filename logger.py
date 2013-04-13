@@ -8,4 +8,5 @@ Starting new Log....
 """)
 
 def log(*string,level = 0):
+	file = open("./log.txt","a")
 	file.write(str(string)+", in Level "+str(level)+".\n")

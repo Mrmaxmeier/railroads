@@ -15,7 +15,7 @@ class Route():
 		log("New Route")
 	def add(self,dir):
 		self.route.append(dir)
-		log("RouteOBJ: "+str(self.route))
+		#log("RouteOBJ: "+str(self.route))
 	def reset(self):
 		self.__init__(self,self.trainID,self.y,self.x)
 	def get(self,frame = -1):
@@ -72,4 +72,4 @@ if __name__ == "__main__":
 	route.add("right")
 	route.add("forward")
 	for i in range(len(route.route)):
-		log(route.get(i),2)
+		pass#log(route.get(i),2)

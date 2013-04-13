@@ -27,8 +27,8 @@ class Event:
 			#	for route in self.gameobj.routelist:
 			#		route.next()
 			#	self.uiobj.refresh("all")
-			elif event == ord("R") or event == ord("r"):
-				self.inmenu = 3
+			elif event == ord("T") or event == ord("t"):
+				self.uiobj.inmenu = 3
 				self.uiobj.refresh("all")
 		elif self.uiobj.inmenu == 1:#Menu
 			if event == ord("E") or event == ord("e") or event == ord("M") or event == ord("m"):
@@ -62,7 +62,19 @@ class Event:
 				self.gameobj.move_highlight("UP")
 			elif event == KEY_DOWN:
 				self.gameobj.move_highlight("DOWN")
-		elif self.uiobj.inmenu == 2:#TrainManager
-			if event == ord("E") or event == ord("e"):
+		elif self.uiobj.inmenu == 3:#TrainManager
+			if event == ord("Q") or event == ord("q"):
 				self.uiobj.inmenu = 0
 				self.uiobj.refresh("all")
+			elif event == ord("E") or event == ord("e"):
+				self.uiobj.inmenu = 4
+				self.uiobj.refresh()
+			elif event == ord("N") or event == ord("n"):
+				self.game.ctrain += 1
+				self.game.ctrain = self.game.ctrain%len(self.game.trainlist)
+			elif event == ord("P") or event == ord("p"):
+				self.game.ctrain += -1
+				self.game.ctrain = self.game.ctrain%len(self.game.trainlist)
+		elif self.uiobj.inmenu == 3:#TrainCreator
+			pass
+			
