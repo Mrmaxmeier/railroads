@@ -31,6 +31,7 @@ class Game:
 		self.grid = Grid(30,30)
 		self.matrix = []
 		self.routelist = []
+		self.newsstrings = [["NEWS",5],["Visible min. 10 Sek",10],["Just Little Info",1]]
 	def elapsedtime(self):
 		return (time.time() - self.clock)
 	def tick(self):
@@ -77,6 +78,11 @@ class Game:
 			return True
 	def gain_money(self,val):
 		self.money += val
+	def check_news(self):
+		string = ""
+		if self.newsstrings != []:
+			string = self.newsstrings[0][0]
+		return string
 
 
 if __name__ == "__main__":

@@ -31,11 +31,11 @@ class Event:
 				self.uiobj.inmenu = 3
 				self.uiobj.refresh("all")
 		elif self.uiobj.inmenu == 1:#Menu
-			if event == ord("E") or event == ord("e") or event == ord("M") or event == ord("m"):
+			if event == ord("E") or event == ord("e") or event == ord("M") or event == ord("m"):# or event == ord("Q") or event == ord("q"):
 				self.uiobj.inmenu = 0
 				self.uiobj.refresh("all")
 		elif self.uiobj.inmenu == 2:#BuildMode
-			if event == ord("E") or event == ord("e"):
+			if event == ord("E") or event == ord("e") or event == ord("Q") or event == ord("q"):
 				self.uiobj.inmenu = 0
 				self.uiobj.refresh("all")
 			if event in [ord("W"),ord("w"),ord("D"),ord("d"),ord("A"),ord("a"),ord("S"),ord("s")]:
@@ -75,6 +75,8 @@ class Event:
 			elif event == ord("P") or event == ord("p"):
 				self.game.ctrain += -1
 				self.game.ctrain = self.game.ctrain%len(self.game.trainlist)
-		elif self.uiobj.inmenu == 3:#TrainCreator
-			pass
+		elif self.uiobj.inmenu == 4:#TrainCreator
+			if event == ord("Q") or event == ord("q"):
+				self.uiobj.inmenu = 0
+				self.uiobj.refresh("all")
 			
