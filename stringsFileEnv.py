@@ -25,7 +25,6 @@ def combine(*args):
 	return res
 
 def format(img, mask, **conf):
-	print(conf)
 	res = {}
 	for key, ch in img.items():
 		if mask.__contains__(key):
