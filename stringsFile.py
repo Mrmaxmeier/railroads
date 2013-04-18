@@ -33,7 +33,7 @@ class StringsFile:
 				colKey = ""
 				if ":" in line:
 					line, _, colKey = line.partition(":")
-				img = {}
+				img = Img()
 				self.dict[line.strip()] = img
 				curImg = (img, 0, colKey)
 		f.close()

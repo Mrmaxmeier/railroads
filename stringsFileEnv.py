@@ -2,14 +2,14 @@ import curses,time,logger
 from stringBasics import *
 
 def combine(*args):
-	res = {}
+	res = Img()
 	for d in args:
 		for k, v in d.items():
 			res[k] = v
 	return res
 
 def format(img, mask, **conf):
-	res = {}
+	res = Img()
 	for key, ch in img.items():
 		if mask.__contains__(key):
 			mchar = mask[key]
