@@ -32,6 +32,7 @@ class Game:
 		self.matrix = []
 		self.routelist = []
 		self.newsstrings = [["NEWS",5],["Visible min. 10 Sek",10],["Just Little Info",1]]
+		self.newsstringstimer = 0
 	def elapsedtime(self):
 		return (time.time() - self.clock)
 	def tick(self):
@@ -79,6 +80,9 @@ class Game:
 	def gain_money(self,val):
 		self.money += val
 	def check_news(self):
+		if self.newsstringstimer <= 0:
+			self.newsstrings.remove(self.newsstrings[0])
+			self.newsstringstimer = self.newsstrings[1]
 		string = ""
 		if self.newsstrings != []:
 			string = self.newsstrings[0][0]

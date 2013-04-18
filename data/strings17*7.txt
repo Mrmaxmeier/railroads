@@ -393,6 +393,11 @@ info_NO_YES:€
 
 
 #* As Insert
+#!:Mid#Line1
+#":Mid#Line2
+#§:Mid#Line3
+#$:Mid#Line4
+#%:Mid#Line5
 info:€
   /‾\____ 
  /    !  \
