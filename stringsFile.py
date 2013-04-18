@@ -7,7 +7,23 @@ from stringsFileEnv import black, white, red, green, blue, cyan, magenta, yellow
 from curses import *
 from logger import *
 
-
+class Img(dict):
+	def getDim(self):
+		maxx = -1; maxy = -1
+		for y, x in self.keys():
+			maxx = max(x, maxx)
+			maxy = max(y, maxy)
+		return (maxy+1, maxx+1)
+	
+	def __str__(self):
+		ydim, xdim = self.getDim()
+		res = "\n"
+		for y in range(ydim):
+			for x in range(xdim):
+				res += str(self.get((y, x), " "))
+			res += "\n"
+		return res
+	__repr__ = __str__
 
 class Char:
 	def __init__(self, char):
