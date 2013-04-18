@@ -1,21 +1,5 @@
 import curses,time,logger
-
-black = curses.COLOR_BLACK
-white = curses.COLOR_WHITE
-red = curses.COLOR_RED
-green = curses.COLOR_GREEN
-blue = curses.COLOR_BLUE
-cyan = curses.COLOR_CYAN
-magenta = curses.COLOR_MAGENTA
-yellow = curses.COLOR_YELLOW
-
-italic = lambda *args: lambda ch: ch.italic(*args)
-bold = lambda *args: lambda ch: ch.bold(*args)
-underline = lambda *args: lambda ch: ch.underline(*args)
-blink = lambda *args: lambda ch: ch.blink(*args)
-
-textCol = lambda *args: lambda ch: ch.textCol(*args)
-backCol = lambda *args: lambda ch: ch.backCol(*args)
+from stringBasics import *
 
 def combine(*args):
 	res = {}
