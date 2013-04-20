@@ -25,7 +25,6 @@ class Game:
 		self.clock = time()
 		self.year = 1830
 		self.month = "Janurary"
-		self.money = 500
 		self.highlighted = [0,0]
 		self.screensize = [0,0]
 		self.trainlist = [[[4,4],"OldieTrain","MyShittyTrain",1642,42,"train_hr"]]
@@ -77,13 +76,13 @@ class Game:
 		if direction == "DOWN" and self.highlighted[0]<self.screensize[0]:
 			self.highlighted[0] += 1
 	def spend_money(self,val):
-		if val > self.money:
+		if val > self.storage.money:
 			return False
 		else:
-			self.money += -val
+			self.storage.money += -val
 			return True
 	def gain_money(self,val):
-		self.money += val
+		self.storage.money += val
 	def getNews(self):
 		#if self.newsstringstimer <= 0:
 		#	self.newsstrings.remove(self.newsstrings[0])

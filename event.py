@@ -41,11 +41,13 @@ class Event:
 				self.gameobj.storage.save()
 				self.gameobj.newsstrings.append(["Game Saved!",5])
 				self.uiobj.inmenu = 0
+				self.gameobj.resume()
 				self.uiobj.refresh()
 			elif event == ord("L") or event == ord("l"):
 				self.gameobj.storage.load()
 				self.gameobj.newsstrings.append(["Game Loaded!",5])
 				self.uiobj.inmenu = 0
+				self.gameobj.resume()
 				self.uiobj.refresh()
 		elif self.uiobj.inmenu == 2:#BuildMode
 			if event == ord("E") or event == ord("e") or event == ord("Q") or event == ord("q"):

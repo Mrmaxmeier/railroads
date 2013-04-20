@@ -62,7 +62,7 @@ class UI:
 		if Y >= self.screensize[0] or X >= self.screensize[1]: pass
 		else: charobj.draw(Y,X,self.cursesinstance)
 	def hud(self):
-		string = "Coins: "+str(self.gameobj.money)
+		string = "Coins: "+str(self.gameobj.storage.money)
 		self.cprint(0,self.screensize[1]-(len(string)+1),string)
 		string = self.gameobj.month+" "+str(self.gameobj.year)
 		self.cprint(1,self.screensize[1]-(len(string)+1),string)

@@ -7,6 +7,7 @@ class Storage():
 		self.newGame()
 	def newGame(self):
 		self.year = 0
+		self.money = 500
 		self.clock = StoppableClock(running = True)
 		self.playername = ""
 		#TrainData
@@ -26,7 +27,7 @@ class Storage():
 			log("Failed to LoadSavegame...")
 			load = self
 		#self.playername = load.playername
-		datas = ["playername","year","trainProducers","trains","products"]
+		datas = ["playername","year","trainProducers","trains","products","money","clock"]
 		for data in datas:
 			exec("self."+data+" = load."+data)
 
