@@ -335,6 +335,10 @@ trainmanager:*
 \_/‾‾‾‾‾‾\______|_____/‾‾‾‾‾‾‾\_/
 
 
+#!:Mid#Line1
+#":Mid#Line2
+#§:Mid#Line3
+#$:Mid#Line4
 newtrain:€
 /‾‾‾‾‾\___________________/‾‾‾‾‾\
 |_____/‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\_____|
@@ -342,13 +346,15 @@ newtrain:€
 |     |   .---|'"`|---.   |     |
 |     |  `o"O-OO-OO-O"o   |     |
 |     \___________________/     |
-| Year:  1979   | Name: "Train" | 
+| Year:    !    | Name: "Train" | 
 | Speed: 50mph  | Comp: "Shit"  |
 | Type: "Steam" | Price: 50$    |
 | Waggs: 5      | ***:          |
 | /‾‾‾‾‾‾\      |     /‾‾‾‾‾‾‾\ |
 | |[N]ext|      |     |[P]rev.| |
 \_/‾‾‾‾‾‾\______|_____/‾‾‾‾‾‾‾\_/
+
+=newtrain.setTextPoss({"!":"line1"})
 
 
 #* As Insert

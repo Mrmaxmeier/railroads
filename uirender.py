@@ -120,6 +120,10 @@ class UI:
 			self.printdict_in_middle(self.stringsfile.dict["menu"])
 		elif self.inmenu == 3:
 			self.printdict_in_middle(self.stringsfile.dict["trainmanager"])
+		elif self.inmenu == 4:
+			guidict = self.stringsfile.dict["newtrain"].copy()
+			guidict.giveText(line1="YEAR")
+			self.printdict_in_middle(guidict)
 		self.cursesinstance.refresh()
 	def render_trains(self):
 		for route in self.gameobj.routelist:
