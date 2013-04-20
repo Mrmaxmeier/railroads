@@ -60,6 +60,7 @@ class UI:
 				self.cursesinstance.addstr(Y,X,str.encode('utf_8'),type)
 	def charprint(self,Y,X,charobj):
 		if Y >= self.screensize[0] or X >= self.screensize[1]: pass
+		elif Y < 0 or X < 0: pass
 		else: charobj.draw(Y,X,self.cursesinstance)
 	def hud(self):
 		string = "Coins: "+str(self.gameobj.storage.money)
