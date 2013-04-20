@@ -68,6 +68,11 @@ class Img(dict):
 			for i, ch in enumerate(text):
 				self[y, x+i] = Char(ch)
 	
+	def withText(self, *args, **kwd):
+		new = self.copy()
+		new.giveText(*args, **kwd)
+		return new
+	
 	def setTextPoss(self, conf={}, replaceWith=None, align=right, **conf2):
 		conf.update(conf2)
 		toDelete = []
