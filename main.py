@@ -24,7 +24,7 @@ def newgame(std):
 	#ui.hud(42,1999,[10,10])
 	#game.matrix = testmatrix
 	ui.refresh()
-	r_test = Route("TRAIN_ID",3,4,1)#y,x,right
+	r_test = Route("TRAIN_ID",1,1,1)#y,x,right
 	r_test.add("forward")
 	r_test.add("right")
 	r_test.add("forward")
