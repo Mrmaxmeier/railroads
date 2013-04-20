@@ -28,6 +28,10 @@ def left(pos, strlen):
 	(y, x) = pos
 	return (y, x-strlen)
 
+def center(pos, strlen):
+	(y, x) = pos
+	return (y, int(x-(strlen/2)))
+
 class Img(dict):
 	def __init__(self, *args, **kwd):
 		dict.__init__(self, *args, **kwd)
@@ -63,6 +67,20 @@ class Img(dict):
 			(y, x) = align(pos, len(text))
 			for i, ch in enumerate(text):
 				self[y, x+i] = Char(ch)
+	
+	def setTextPoss(self, conf={}, replaceWith=None, align=right, **conf2):
+		conf.update(conf2)
+		toDelete = []
+		for pos, ch in self.items():
+			char = ch.char
+			if char in conf.keys():
+				self.setTextPos(conf[char], pos, align)
+				if replaceWith == None:
+					toDelete.append(pos)
+				else:
+					self[pos] = replaceWith
+		for pos in toDelete:
+			del self[pos]
 
 class Char:
 	def __init__(self, char):
