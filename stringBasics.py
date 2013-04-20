@@ -20,9 +20,19 @@ textCol = lambda *args: lambda ch: ch.textCol(*args)
 backCol = lambda *args: lambda ch: ch.backCol(*args)
 
 
+def right(pos, strlen):
+	(y, x) = pos
+	return (y, x)
 
+def left(pos, strlen):
+	(y, x) = pos
+	return (y, x-strlen)
 
 class Img(dict):
+	def __init__(self, *args, **kwd):
+		dict.__init__(self, *args, **kwd)
+		self.textPoss = {}
+	
 	def getDim(self):
 		maxx = -1; maxy = -1
 		for y, x in self.keys():
@@ -39,6 +49,20 @@ class Img(dict):
 			res += "\n"
 		return res
 	__repr__ = __str__
+	
+	def copy(self):
+		return copy.deepcopy(self)
+	
+	def setTextPos(self, name, pos, align=right):
+		self.textPoss[name] = pos, align
+	
+	def giveText(self, texts={}, **texts2):
+		texts.update(texts2)
+		for k, text in texts.items():
+			pos, align = self.textPoss[k]
+			(y, x) = align(pos, len(text))
+			for i, ch in enumerate(text):
+				self[y, x+i] = Char(ch)
 
 class Char:
 	def __init__(self, char):
