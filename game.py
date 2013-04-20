@@ -34,9 +34,9 @@ class Game:
 		self.grid = Grid(30,30)
 		self.matrix = []
 		self.routelist = []
-		self.newsstrings = [["NEWS",5],["Visible min. 10 Sek",10],["Just Little Info",1]]
+		self.newsstrings = [["NEWS",5],["10 Sek",10],["5 Sek",5],["2 Sek",2],["20 Sek",10],["Just Little Info",1]]
 		self.newsstringstimer = 0
-		self.newsclock = StoppableClock()
+		self.newsclock = StoppableClock(running = True)
 		self.storage = Storage()
 	#def elapsedtime(self):
 	#	return self.storage.clock.getTime()
@@ -91,12 +91,12 @@ class Game:
 		if self.newsclock.getTime() >= self.newsstrings[0][1]:
 			if len(self.newsstrings) > 1:
 				self.newsstrings.remove(self.newsstrings[0])
-				self.newsclock.setTime(self.newsstrings[1])
+				self.newsclock.setTime(self.newsstrings[0][1])
 			else:
 				pass
 		string = ""
-		if self.newsstrings != []:
-			string = self.newsstrings[0][0]
+		#if self.newsstrings != []:
+		string = self.newsstrings[0][0]
 		return string
 	def pause(self):
 		self.storage.clock.stop()

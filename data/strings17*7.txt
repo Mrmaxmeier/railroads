@@ -413,6 +413,13 @@ news:€
  \    %  /  
   \_/‾‾‾‾   
 
-=news.setTextPoss({"§":"line1"})
-=print(news.textPoss)
-=print("Testo")
+news:€
+  /‾\________   
+ /      !    \  
+/       "     | 
+|          § <| 
+\       $     | 
+ \      %    /  
+  \_/‾‾‾‾‾‾‾‾   
+
+=news.setTextPoss({"§":"line1"},align = alignright)

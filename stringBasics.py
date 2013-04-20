@@ -20,15 +20,15 @@ textCol = lambda *args: lambda ch: ch.textCol(*args)
 backCol = lambda *args: lambda ch: ch.backCol(*args)
 
 
-def right(pos, strlen):
-	(y, x) = pos
-	return (y, x)
-
-def left(pos, strlen):
+def alignright(pos, strlen):
 	(y, x) = pos
 	return (y, x-strlen)
 
-def center(pos, strlen):
+def alignleft(pos, strlen):
+	(y, x) = pos
+	return (y, x)
+
+def aligncenter(pos, strlen):
 	(y, x) = pos
 	return (y, int(x-(strlen/2)))
 
@@ -57,7 +57,7 @@ class Img(dict):
 	def copy(self):
 		return copy.deepcopy(self)
 	
-	def setTextPos(self, name, pos, align=right):
+	def setTextPos(self, name, pos, align=alignleft):
 		self.textPoss[name] = pos, align
 	
 	def giveText(self, texts={}, **texts2):
@@ -73,7 +73,7 @@ class Img(dict):
 		new.giveText(*args, **kwd)
 		return new
 	
-	def setTextPoss(self, conf={}, replaceWith=None, align=right, **conf2):
+	def setTextPoss(self, conf={}, replaceWith=None, align=alignleft, **conf2):
 		conf.update(conf2)
 		toDelete = []
 		for pos, ch in self.items():
