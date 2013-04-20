@@ -27,8 +27,10 @@ class StringsFile:
 				pass
 			elif "=" in line:
 				name, _, expr = line.partition("=")
+				name = name.strip()
 				val = eval(expr, self.dict)
-				self.dict[name.strip()] = val
+				if name:
+					self.dict[name] = val
 			else:
 				colKey = ""
 				if ":" in line:
