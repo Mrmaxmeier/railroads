@@ -21,3 +21,10 @@ class StoppableClock:
 	
 	def __str__(self):
 		return "%sUhr (%ds)" % ("gestartete " if self.running else "", self.getTime())
+	
+	def setTime(self,totime = 0):
+		if self.running:
+			pass
+		else:
+			self.stop()
+		self.time = totime

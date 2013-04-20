@@ -14,6 +14,7 @@ class StringsFile:
 		f = codecs.open(name, encoding='utf-8')
 		curImg = None
 		for line in f:
+			print("TEST")
 			line = line[:-1]
 			if line == "":
 				curImg = None
@@ -26,7 +27,9 @@ class StringsFile:
 			elif line.startswith("#"):
 				pass
 			elif "=" in line:
+				print("Lalal")
 				name, _, expr = line.partition("=")
+				print(name, _, expr)
 				name = name.strip()
 				val = eval(expr, self.dict)
 				if name:

@@ -404,11 +404,15 @@ info_NO_YES:€
 #§:Mid#Line3
 #$:Mid#Line4
 #%:Mid#Line5
-info:€
-  /‾\____ 
- /    !  \
-/     "   |
-|    §   <|
-\     $   |
- \    %  /
-  \_/‾‾‾‾ 
+news:€
+  /‾\____   
+ /    !  \  
+/     "   | 
+|    §   <| 
+\     $   | 
+ \    %  /  
+  \_/‾‾‾‾   
+
+=news.setTextPoss({"§":"line1"})
+=print(news.textPoss)
+=print("Testo")

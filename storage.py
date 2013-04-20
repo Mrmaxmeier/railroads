@@ -1,11 +1,13 @@
 import pickle
 from logger import *
+from StoppableClock import *
 class Storage():
 	def __init__(self):
 		super(Storage, self).__init__()
 		self.newGame()
 	def newGame(self):
 		self.year = 0
+		self.clock = StoppableClock(running = True)
 		self.playername = ""
 		#TrainData
 		#			Year	Rank

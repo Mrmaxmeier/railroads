@@ -1,7 +1,10 @@
 #!/usr/local/bin/python3
 import time
+from time import *
 from grid import *
 from route import *
+from storage import *
+from StoppableClock import *
 
 
 
@@ -19,7 +22,7 @@ class Game:
 		self.objects = [[[[1,1],["Station",]]],[[[2,2],"UpCurve",1.42]],
 		[[[3,3],"OldieTrain","MyShittyTrain",1642,42]],[[[4,4],"Library","Max's Bookstore",42]]]
 		self.routes =  []
-		self.clock = time.time()
+		self.clock = time()
 		self.year = 1830
 		self.month = "Janurary"
 		self.money = 500
@@ -33,15 +36,17 @@ class Game:
 		self.routelist = []
 		self.newsstrings = [["NEWS",5],["Visible min. 10 Sek",10],["Just Little Info",1]]
 		self.newsstringstimer = 0
-	def elapsedtime(self):
-		return (time.time() - self.clock)
+		self.newsclock = StoppableClock()
+		self.storage = Storage()
+	#def elapsedtime(self):
+	#	return self.storage.clock.getTime()
 	def tick(self):
 		#print("Year:",int(self.year))
 		self.tick_move()
 	def idletick(self):
-		self.year = int((self.elapsedtime()/60)+1830)
+		self.year = int((self.storage.clock.getTime()/60)+1830)
 		months = ["   Jan","   Feb","   Mar","   Apr","  May","  June","  July","   Aug","   Sep","   Oct","   Nov","   Dec"]
-		self.month = months[int(((self.elapsedtime()/60)+1830-int((self.elapsedtime()/60)+1830))*12)]
+		self.month = months[int(((self.storage.clock.getTime()/60)+1830-int((self.storage.clock.getTime()/60)+1830))*12)]
 	def idleanimate(self):
 		for route in self.routelist:
 			route.next()
@@ -79,15 +84,24 @@ class Game:
 			return True
 	def gain_money(self,val):
 		self.money += val
-	def check_news(self):
-		if self.newsstringstimer <= 0:
-			self.newsstrings.remove(self.newsstrings[0])
-			self.newsstringstimer = self.newsstrings[1]
+	def getNews(self):
+		#if self.newsstringstimer <= 0:
+		#	self.newsstrings.remove(self.newsstrings[0])
+		#	self.newsstringstimer = self.newsstrings[1]
+		if self.newsclock.getTime() >= self.newsstrings[0][1]:
+			if len(self.newsstrings) > 1:
+				self.newsstrings.remove(self.newsstrings[0])
+				self.newsclock.setTime(self.newsstrings[1])
+			else:
+				pass
 		string = ""
 		if self.newsstrings != []:
 			string = self.newsstrings[0][0]
 		return string
-
+	def pause(self):
+		self.storage.clock.stop()
+	def resume(self):
+		self.storage.clock.start()
 
 if __name__ == "__main__":
 	game = Game()

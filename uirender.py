@@ -95,6 +95,9 @@ class UI:
 		#log(y,x,level = 1)
 		#log(int(self.screensize[0]/2)-y/2,int(self.screensize[1]/2)-x/2,level = 1)
 		self.printdict(dict,int(int(self.screensize[0]/2)-y/2),int(int(self.screensize[1]/2)-x/2))
+	def printdict_left(self,dict):
+		(y,x) = max(dict.keys(), key=tuple)
+		self.printdict(dict,int(int(self.screensize[0]/2)-y/2),int(int(self.screensize[1])-x))
 	def printmatrix(self,matrix = None,Y = 0,X = 0):
 		if matrix == None:
 			matrix = self.gameobj.matrix
@@ -105,10 +108,14 @@ class UI:
 				#print(yi)
 				coords = [coords[0],coords[1]+self.tilesize[1]]
 				self.printdict(self.stringsfile.dict[dict],coords[0],coords[1])
+	def drawnews(self):
+		guidict = self.stringsfile.dict["news"].copy()
+		news = self.gameobj.getNews()
+		guidict.giveText(line1=news)
+		self.printdict_left(guidict)
 	def refresh(self,option = None):
 		self.cursesinstance.clear()
 		if option == "all":
-			
 			self.gameobj.refresh_matrix()
 		self.printmatrix()
 		self.printdict(self.stringsfile.dict["highlighted"],self.gameobj.highlighted[0]*self.tilesize[0],self.gameobj.highlighted[1]*self.tilesize[1])
@@ -124,6 +131,7 @@ class UI:
 			guidict = self.stringsfile.dict["newtrain"].copy()
 			guidict.giveText(line1="YEAR")
 			self.printdict_in_middle(guidict)
+		self.drawnews()
 		self.cursesinstance.refresh()
 	def render_trains(self):
 		for route in self.gameobj.routelist:

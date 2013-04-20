@@ -19,6 +19,7 @@ class Event:
 			#	self.uiobj.refresh("all") --UnWanted
 			elif event == ord("M") or event == ord("m"):
 				self.uiobj.inmenu = 1
+				self.gameobj.pause()
 				self.uiobj.refresh("all")
 			elif event == ord("B") or event == ord("b"):
 				self.uiobj.inmenu = 2
@@ -29,11 +30,18 @@ class Event:
 			#	self.uiobj.refresh("all")
 			elif event == ord("T") or event == ord("t"):
 				self.uiobj.inmenu = 3
+				self.gameobj.pause()
 				self.uiobj.refresh("all")
 		elif self.uiobj.inmenu == 1:#Menu
 			if event == ord("E") or event == ord("e") or event == ord("M") or event == ord("m"):# or event == ord("Q") or event == ord("q"):
 				self.uiobj.inmenu = 0
+				self.gameobj.resume()
 				self.uiobj.refresh("all")
+			elif event == ord("S") or event == ord("s"):
+				self.gameobj.storage.save()
+				self.gameobj.newsstrings.append(["Game Saved!",5])
+				self.uiobj.inmenu = 0
+				self.uiobj.refresh()
 		elif self.uiobj.inmenu == 2:#BuildMode
 			if event == ord("E") or event == ord("e") or event == ord("Q") or event == ord("q"):
 				self.uiobj.inmenu = 0
@@ -65,6 +73,7 @@ class Event:
 		elif self.uiobj.inmenu == 3:#TrainManager
 			if event == ord("Q") or event == ord("q"):
 				self.uiobj.inmenu = 0
+				self.gameobj.resume()
 				self.uiobj.refresh("all")
 			elif event == ord("E") or event == ord("e"):
 				self.uiobj.inmenu = 4
@@ -78,5 +87,6 @@ class Event:
 		elif self.uiobj.inmenu == 4:#TrainCreator
 			if event == ord("Q") or event == ord("q"):
 				self.uiobj.inmenu = 0
+				self.gameobj.resume()
 				self.uiobj.refresh("all")
 			
