@@ -18,11 +18,11 @@ class Game:
 		Game.routes = [[TrainID,[stations 1,2,3...],actpos]]
 		"""
 		#self.matrix =   {(1,1):("station","data","data")}
-		self.objects = {"station":((1,1),("data","data"))}
-		self.objects = [[[[1,1],["Station",]]],[[[2,2],"UpCurve",1.42]],
-		[[[3,3],"OldieTrain","MyShittyTrain",1642,42]],[[[4,4],"Library","Max's Bookstore",42]]]
-		self.routes =  []
-		self.clock = time()
+		#self.objects = {"station":((1,1),("data","data"))}
+		#self.objects = [[[[1,1],["Station",]]],[[[2,2],"UpCurve",1.42]],
+		#[[[3,3],"OldieTrain","MyShittyTrain",1642,42]],[[[4,4],"Library","Max's Bookstore",42]]]
+		#self.routes =  []
+		#self.clock = time()
 		self.year = 1830
 		self.month = "Janurary"
 		self.highlighted = [0,0]
@@ -30,10 +30,10 @@ class Game:
 		self.trainlist = [[[4,4],"OldieTrain","MyShittyTrain",1642,42,"train_hr"]]
 		self.ctrain = 0
 		self.stationlist = [] #[Coords],Status
-		self.grid = Grid(30,30)
+		#self.grid = Grid(30,30)
 		self.matrix = []
 		self.routelist = []
-		self.newsstrings = [["NEWS",5],["10 Sek",10],["5 Sek",5],["2 Sek",2],["20 Sek",10],["Just Little Info",1]]
+		self.newsstrings = [["NEWS",5],["10 Sek",10],["5 Sek",5],["2 Sek",2],["20 Sek",10],["Info",1]]
 		self.newsstringstimer = 0
 		self.newsclock = StoppableClock(running = True)
 		self.storage = Storage()
@@ -52,16 +52,16 @@ class Game:
 		#self.uiobj.refresh("all")
 		
 	def tick_move(self):
-		for train in self.objects[2]:
-			pass
-			#print("Train",train)
-		for station in self.objects[0]:
-			pass
-			#print("Station",station)
+		#for train in self.objects[2]:
+		#	pass
+		#	#print("Train",train)
+		#for station in self.objects[0]:
+		#	pass
+		#	#print("Station",station)
 		self.refresh_matrix()
 	def refresh_matrix(self):
-		self.matrix = self.grid.returnmatrix()
-		self.stationlist = self.grid.returnstations()
+		self.matrix = self.storage.grid.returnmatrix()
+		self.stationlist = self.storage.grid.returnstations()
 	def addobj(self,type,coords,data):
 		pass
 		#self.matrix[coords] = (type,data)

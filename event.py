@@ -58,7 +58,7 @@ class Event:
 				elif event == ord("D") or event == ord("d"): cdir = RIGHT
 				elif event == ord("A") or event == ord("a"): cdir = LEFT
 				elif event == ord("S") or event == ord("s"): cdir = DOWN
-				cfield = self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]]
+				cfield = self.gameobj.storage.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]]
 				if cfield.isRail(cdir):
 					self.gameobj.gain_money(19)
 					cfield.destroyRail(cdir)
@@ -66,7 +66,7 @@ class Event:
 					if self.gameobj.spend_money(20):
 						cfield.buildRail(cdir)
 			elif event == ord("\n"):
-				cfield = self.gameobj.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]]
+				cfield = self.gameobj.storage.grid.dict[self.gameobj.highlighted[0],self.gameobj.highlighted[1]]
 				cfield.toggleStation()
 				self.uiobj.refresh("all")
 			if event == KEY_LEFT:

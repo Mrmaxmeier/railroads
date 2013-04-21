@@ -1,6 +1,6 @@
 #!/usr/local/bin/python3
 
-import os,random,threading,queue,time
+import os,random,threading,queue,time,sys
 
 
 from game import *
@@ -73,4 +73,5 @@ def main(std):
 
 
 if __name__ == "__main__":
+	sys.setrecursionlimit(50000)
 	wrapper(main)

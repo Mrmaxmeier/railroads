@@ -1,6 +1,7 @@
 import pickle
 from logger import *
 from StoppableClock import *
+from grid import *
 class Storage():
 	def __init__(self):
 		super(Storage, self).__init__()
@@ -17,6 +18,7 @@ class Storage():
 		self.trains = [["BeepBeep",0,2011,120]]
 		#		ProductName    Cost
 		self.products = [["Electronics",1300]]
+		self.grid = Grid(30,30)
 	def save(self):
 		pickle.dump(self,open("StorageSave.pickle","wb" ))
 	def load(self):
@@ -27,7 +29,7 @@ class Storage():
 			log("Failed to LoadSavegame...")
 			load = self
 		#self.playername = load.playername
-		datas = ["playername","year","trainProducers","trains","products","money","clock"]
+		datas = ["playername","year","trainProducers","trains","products","money","clock","grid"]
 		for data in datas:
 			exec("self."+data+" = load."+data)
 

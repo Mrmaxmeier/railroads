@@ -24,7 +24,6 @@ class StoppableClock:
 	
 	def setTime(self,totime = 0):
 		if self.running:
-			pass
-		else:
 			self.stop()
 		self.time = totime
+		self.start()
